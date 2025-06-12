@@ -34,11 +34,11 @@ This is a Streamlit-powered web application that predicts the likelihood of diab
 
 ## 📷 Screenshots
 
-<img width="1440" alt="Screenshot 2025-06-12 at 7 04 49 PM" src="https://github.com/user-attachments/assets/21b56230-11b9-4dad-8c20-73b738f441c5" />
+<img width="1440" alt="Screenshot 2025-06-12 at 7 25 02 PM" src="https://github.com/user-attachments/assets/9038283e-0b3f-4577-8ffb-20c5b0fff5b2" />
 
-<img width="1440" alt="Screenshot 2025-06-12 at 7 05 55 PM" src="https://github.com/user-attachments/assets/14b98415-cdf3-4175-8bc0-d70e185f296b" />
+<img width="1440" alt="Screenshot 2025-06-12 at 7 27 14 PM" src="https://github.com/user-attachments/assets/81a44d35-dc1f-45ca-9b35-70539cb36dd3" />
 
-<img width="1440" alt="Screenshot 2025-06-12 at 7 06 02 PM" src="https://github.com/user-attachments/assets/12082279-9e65-425d-b75a-29cd0f94f01b" />
+<img width="1440" alt="Screenshot 2025-06-12 at 7 27 26 PM" src="https://github.com/user-attachments/assets/59ecdcf6-cb16-40de-a537-81bcd1bf27e4" />
 
 
 ## 🧠 Model Training
