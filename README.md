@@ -44,3 +44,31 @@ This is a Streamlit-powered web application that predicts the likelihood of diab
 ## 🧠 Model Training
 The models are trained on the popular Healthcare Diabetes dataset. Each model is trained, evaluated, and used for real-time prediction in the app.
 
+## 🔧 Model Hyperparameters
+
+The following hyperparameter grids were used for model tuning via `GridSearchCV`:
+
+### Logistic Regression
+- `C`: [0.1, 1, 10]
+- `penalty`: ['l1', 'l2']
+- `solver`: 'liblinear'
+
+### Decision Tree
+- `max_depth`: [None, 5, 10, 15]
+- `min_samples_leaf`: [1, 5, 10]
+- `min_samples_split`: [2, 5, 10]
+
+### Random Forest
+- `n_estimators`: [100, 200]
+- `max_features`: ['sqrt', 'log2']
+- `max_depth`: [10, 20, None]
+- `min_samples_leaf`: [1, 5]
+
+### Gradient Boosting
+- `n_estimators`: 100 
+
+### Linear SVM (LinearSVC)
+- `C`: [0.1, 1, 10]
+- `penalty`: ['l1', 'l2']
+- `dual`: False
+
