@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import joblib
 from PIL import Image
+import altair as alt
 
 # Page configuration
 st.set_page_config(
@@ -91,6 +92,10 @@ try:
         'Gradient Boosting': joblib.load('gradient_boosting_model.pkl'),
         'Linear SVM': joblib.load('linear_svm_model.pkl')
     }
+    
+    # Load model performance metrics
+    model_performance = joblib.load('model_metrics.pkl')
+
 except FileNotFoundError:
     st.error("Model or scaler files not found. Please train and save them first by running healthcare_sl.py.")
     st.stop()
@@ -121,6 +126,35 @@ with st.sidebar:
 # Main content
 st.title("Diabetes Risk Prediction System")
 st.markdown("Enter the patient's details below to predict the likelihood of diabetes.")
+
+# Model performance section
+st.markdown("---")
+st.subheader("📊 Model Performance Comparison")
+
+
+# Convert performance dictionary to a DataFrame for easy charting
+performance_df = pd.DataFrame.from_dict(model_performance, orient='index')
+performance_df.index.name = 'Model'
+performance_df.reset_index(inplace=True)
+
+# Melt the DataFrame to long format for Altair
+performance_melted = performance_df.melt('Model', var_name='Metric', value_name='Score')
+
+# Filter for Accuracy only
+accuracy_data = performance_melted[performance_melted['Metric'] == 'Accuracy']
+
+# Create the bar chart using Altair
+chart = alt.Chart(accuracy_data).mark_bar().encode(
+    x=alt.X('Score:Q', axis=alt.Axis(format=".2f", title='Accuracy Score')),
+    y=alt.Y('Model:N', title='Model'),
+    color=alt.Color('Model:N', title='Model'), # Color bars by Model
+    tooltip=['Model', alt.Tooltip('Score', format=".3f")]
+).properties(
+    title='Model Accuracy Comparison'
+).interactive()
+
+st.altair_chart(chart, use_container_width=True)
+st.markdown("---")
 
 # Model selection
 selected_model_name = st.selectbox(
